@@ -50,15 +50,17 @@ Server will be running at: 📍 [**http://127.0.0.1:8000**](http://127.0.0.1:800
 
 ## Authentication
 
-1. Register or manually add a user to the database.
-2. Obtain a token by sending a **POST** request to `/token` with username and password.
-3. Use the token for authentication when calling protected endpoints.
+1. Obtain a token by sending a **POST** request to `/token` with username and password.
+2. Use the token for authentication when calling protected endpoints.
 
 ### Example: Getting a Token (Using `httpie`)
 
 ```
 http -f POST http://127.0.0.1:8000/token username=test_user password=password
 ```
+
+- Or can check all the endpoints from the test.rest file.
+- [optional] just install the 'REST Client' extension on the VS Code. And Run Server and Click on 'Send Request' for the response.
 
 ## API Endpoints
 
