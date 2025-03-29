@@ -68,6 +68,7 @@ http -f POST http://127.0.0.1:8000/token username=test_user password=password
 
 | Method | Endpoint | Description         |
 | ------ | -------- | ------------------- |
+| POST   | `/register` | For the new user |
 | POST   | `/token` | Generates JWT token |
 
 ### 2. Query Processing
