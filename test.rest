@@ -14,11 +14,19 @@ Content-Type: application/x-www-form-urlencoded
 
 username=testuser&password=testpassword
 
-### Generate SQL Query
+### SQL Query For Ex-1
 POST http://127.0.0.1:8000/query
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTc0MzI2NDQ4M30.6K60qj05HA8TSGvpClAuDvdhN1UbVex-MopgVxH21V8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTc0MzI2ODMwNH0.yA9aKpAgd21EknzrKLz3ePR-aiXu4ReM-Sri9RIDJuw
 
 {
-    "natural_language": "List all the details of the student who have more than 50% of attendance the course?"
+    "natural_language": "students who have joined before 2023"
+}
+### SQL Query For Ex-2 
+POST http://127.0.0.1:8000/query
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTc0MzI2ODMwNH0.yA9aKpAgd21EknzrKLz3ePR-aiXu4ReM-Sri9RIDJuw
+
+{
+    "natural_language": "List all the details of the student who have more than 50 days of attendance the course?"
 }

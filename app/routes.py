@@ -34,7 +34,33 @@ def generate_sql(input_prompt: str) -> str:
 @router.post("/query")
 def generate_sql_endpoint(request: SQLQueryRequest, user: str = Depends(get_current_user)):
     try:
-        input_prompt = f"tables:\nCREATE TABLE student_course_attendance (student_id VARCHAR); CREATE TABLE students (student_id VARCHAR)\nquery for: {request.natural_language}"
+        input_prompt = f"""
+tables:
+CREATE TABLE students (
+    student_id VARCHAR PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    enrollment_date DATE
+);
+
+CREATE TABLE courses (
+    course_id VARCHAR PRIMARY KEY,
+    course_name VARCHAR(100),
+    instructor VARCHAR(100),
+    credits INT
+);
+
+CREATE TABLE student_course_attendance (
+    attendance_id SERIAL PRIMARY KEY,
+    student_id VARCHAR REFERENCES students(student_id) ON DELETE CASCADE,
+    course_id VARCHAR REFERENCES courses(course_id) ON DELETE CASCADE,
+    attendance_date DATE,
+    status VARCHAR(20) CHECK (status IN ('Present', 'Absent', 'Late'))
+);
+
+query for: {request.natural_language}
+"""
+
 
         sql_query = generate_sql(input_prompt)
         return {"sql_query": sql_query}
