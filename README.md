@@ -14,8 +14,8 @@ This is a FastAPI-based application that converts natural language queries into 
 ### 1. Clone the Repository
 
 ```
-git clone https://github.com/your-username/fastapi-text2sql.git
-cd fastapi-text2sql
+git clone https://github.com/Vinayrk2/Text-to-sql-converter-api.git
+cd Text-to-sql-converter-api
 ```
 
 ### 2. Create a Virtual Environment (Optional but Recommended)
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 Run the following command to create the SQLite database:
 
 ```
-python database.py
+python app.database.py
 ```
 
 ### 5. Run the FastAPI Server
@@ -82,26 +82,4 @@ http -f POST http://127.0.0.1:8000/token username=test_user password=password
 | Method | Endpoint   | Description                 |
 | ------ | ---------- | --------------------------- |
 | POST   | `/execute` | Execute generated SQL query |
-
-## Deployment on Deta.sh
-
-1. **Install Deta CLI**
-   ```
-   curl -fsSL https://get.deta.dev/cli.sh | sh
-   ```
-2. **Login to Deta**
-   ```
-   deta login
-   ```
-3. **Deploy the Application**
-   ```
-   deta new fastapi-text2sql
-   deta deploy
-   ```
-
-Your API will be live at `https://your-app-name.deta.dev`
-
-## License
-
-This project is licensed under the MIT License.
 
